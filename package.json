@@ -1,0 +1,18 @@
+{
+  "name": "e-com",
+  "version": "1.0.0",
+  "description": "ecommerce rest api",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server":"nodemon server.js"
+  },
+  "keywords": [],
+  "author": "shaquib",
+  "license": "ISC",
+  "dependencies": {
+    "color": "^4.2.3",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}
