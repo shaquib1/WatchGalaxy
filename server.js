@@ -16,7 +16,7 @@ app.get('/' , (req, res)=>{
 
 
 //port
- const port=process.env.PORT;
+ const port=process.env.PORT ||8000;
 
  //run or listen app
  app.listen(port ,()=>{
