@@ -1,24 +1,33 @@
 
-const express =require('express');
-const dotenv=require('dotenv');
+import express  from "express";  //this is es6 module features import and export        // const express =require('express');
+import Color from "color";         //const colors= require('color');
+import dotenv from "dotenv";           // const dotenv=require('dotenv');
+import morgan from "morgan";
+import connectDB from "./config/db.js";
 
+//rest object
+const app=express();    // here .env file is root file so we not use path but if this file inside any folder that use in config(path:'path_name')
+
+// middelwares
+app.use(express.json())
+app.use(morgan('dev'))
 
 // configure env
 dotenv.config();
 
-//rest object
-const app=express();
+// databse config
+connectDB();
 
 //rest api building example
 app.get('/' , (req, res)=>{
-    res.send("hello this is my ecommerce full stack web application");
+    res.send("<h1>hello this is my ecommerce full stack web application in mern</h1>");
 });
 
 
 //port
- const port=process.env.PORT ||8000;
+ const PORT = process.env.PORT || 8000;
 
  //run or listen app
- app.listen(port ,()=>{
-    console.log(` server is running on ${port}`);
+ app.listen(PORT ,()=>{
+    console.log(` server is running on ${process.env.DEV_MODE} mode on port ${PORT}`);
  });

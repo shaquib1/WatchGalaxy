@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "ecommerce rest api",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js"
@@ -14,6 +15,7 @@
     "color": "^4.2.3",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "mongoose": "^7.3.4",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1"
   }
