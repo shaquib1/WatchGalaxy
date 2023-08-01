@@ -29,5 +29,5 @@ app.get('/' , (req, res)=>{
 
  //run or listen app
  app.listen(PORT ,()=>{
-    console.log(` server is running on ${process.env.DEV_MODE} mode on port ${PORT}`);
+    console.log(`server is running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgBlack.white);
  });
