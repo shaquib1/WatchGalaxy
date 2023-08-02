@@ -4,7 +4,7 @@ import Color from "color";         //const colors= require('color');
 import dotenv from "dotenv";           // const dotenv=require('dotenv');
 import morgan from "morgan";
 import connectDB from "./config/db.js";
-
+import authRoutes from "./routes/authRoute.js"
 //rest object
 const app=express();    // here .env file is root file so we not use path but if this file inside any folder that use in config(path:'path_name')
 
@@ -17,6 +17,11 @@ dotenv.config();
 
 // databse config
 connectDB();
+
+
+// routes
+app.use('/api/v1/auth',authRoutes);
+
 
 //rest api building example
 app.get('/' , (req, res)=>{
