@@ -7,19 +7,19 @@ export const registerController = async (req, res) => {
     const { name, email, password, phone, address } = req.body;
     //validations
     if (!name) {
-      return resizeBy.send({ error: "Name is required" });
+      return resizeBy.send({ message: "Name is required" });
     }
     if (!email) {
-      return resizeBy.send({ error: "Email is required" });
+      return resizeBy.send({ message: "Email is required" });
     }
     if (!password) {
-      return resizeBy.send({ error: "Password is required" });
+      return resizeBy.send({ message: "Password is required" });
     }
     if (!phone) {
-      return resizeBy.send({ error: "Phone is required" });
+      return resizeBy.send({ message: "Phone is required" });
     }
     if (!address) {
-      return resizeBy.send({ error: "Address is required" });
+      return resizeBy.send({ message: "Address is required" });
     }
 
     //check user
@@ -27,8 +27,8 @@ export const registerController = async (req, res) => {
 
     //existing user
     if (exisitingUser) {
-      return resizeBy.status(200).send({
-        success: true,
+      return res.status(200).send({
+        success: false,
         message: "Already Register please login",
       });
     }
