@@ -65,7 +65,7 @@ const Register = () => {
             <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} className="form-control" id="exampleInputAddress" placeholder='Address' required />
           </div>
           <div className="mb-3">
-            <input type="text" value={answer} onChange={(e) => setAnswer(e.target.value)} className="form-control" id="exampleInputAddress" placeholder='Answer' required />
+            <input type="text" value={answer} onChange={(e) => setAnswer(e.target.value)} className="form-control" id="exampleInputAnswer" placeholder='What is Your Favorite Language' required />
           </div>
           <button type="submit" className="btn btn-primary" >Register</button>
         </form>
