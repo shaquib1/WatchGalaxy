@@ -118,6 +118,54 @@ export const loginController = async (req, res) => {
 };
 
 
+//forgotPasswordController
+export  const forgotPasswordController = async(req , res) =>{
+try {
+    const {email , answer , newPassword } = req.body
+
+    // validation
+    if(!email){
+      res.status(400).send({
+        message:"email is required",
+      })
+    }
+    if(!answer){
+      res.status(400).send({
+        message:"answer is required",
+      })
+    }
+    if(!newPassword){
+      res.status(400).send({
+        message:"newPassword is required",
+      })
+    }
+
+    // checking
+    const user = await userModel.findOne({email , answer});
+    // validation
+    if(!user){
+     return res.status(404).send({
+      success:false,
+      message:"Wrong Email ans answer",
+     })
+    }
+
+   const hashed = await hashPassword(newPassword);
+   await userModel.findByIdAndUpdate(user._id, {password:hashed});
+   res.status(200).send({
+    success:true,
+    message:"Password Reset Successfully",
+   })
+} catch (error) {
+   console.log(error)
+   res.status(500).send({
+    success:false,
+    message:"something went wrong",
+    error
+   })
+}
+}
+
 // testController
  export const testController = async(req , res) =>{
   res.send("hello this is testig router to protected");
