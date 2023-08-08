@@ -5,7 +5,10 @@ import dotenv from "dotenv";           // const dotenv=require('dotenv');
 import morgan from "morgan";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoute.js"
+import categoryRoute from  './routes/categoryRoutes.js'
+import productRoute from './routes/productRoutes.js'
 import cors from 'cors';
+
 
 //rest object
 const app=express();    // here .env file is root file so we not use path but if this file inside any folder that use in config(path:'path_name')
@@ -24,6 +27,8 @@ connectDB();
 
 // routes
 app.use('/api/v1/auth',authRoutes);
+app.use('/api/v1/category' , categoryRoute)
+app.use('/api/v1/product' , productRoute)
 
 
 //rest api building example
