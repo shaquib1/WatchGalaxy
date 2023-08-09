@@ -4,7 +4,8 @@ import slugify from "slugify";
 
 export const createProductController = async (req, res) => {
   try {
-    const { name, description, price, category, quantity, shipping } = req.fields;
+    const { name, description, price, category, quantity, shipping } =
+      req.fields;
     const { photo } = req.files;
     //alidation
     switch (true) {
@@ -75,7 +76,7 @@ export const getSingleProductController = async (req, res) => {
     const product = await productModel
       .findOne({ slug: req.params.slug })
       .select("-photo")
-      .populate("category")
+      .populate("category");
     res.status(200).send({
       success: true,
       message: "Single Product Fetched",
@@ -91,50 +92,48 @@ export const getSingleProductController = async (req, res) => {
   }
 };
 
+// get photo
 
-// get photo 
-
-export const getProductPhotoController = async(req , res)=>{
+export const getProductPhotoController = async (req, res) => {
   try {
-     const product = await productModel.findById(req.params.pid).select("photo");
-     if(product.photo.data){
+    const product = await productModel.findById(req.params.pid).select("photo");
+    if (product.photo.data) {
       res.set("Content-type", product.photo.contentType);
       return res.status(200).send(product.photo.data);
-     }
+    }
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).send({
-      success:false,
-      message:"error while getting photo",
+      success: false,
+      message: "error while getting photo",
       error,
-    })
+    });
   }
-}
-
+};
 
 // delete product
-export const deleteProductController = async(req , res)=>{
+export const deleteProductController = async (req, res) => {
   try {
-      await productModel.findByIdAndDelete(req.params.pid).select("-photo")
-      res.status(200).send({
-        success:true,
-        message:"Product Deleted successfully",
-      })
+    await productModel.findByIdAndDelete(req.params.pid).select("-photo");
+    res.status(200).send({
+      success: true,
+      message: "Product Deleted successfully",
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).send({
-      success:false,
-      message:"Error while deleting product",
+      success: false,
+      message: "Error while deleting product",
       error,
-    })
+    });
   }
-}
-
+};
 
 // updating products
-export const updateProductController = async(req , res) =>{
+export const updateProductController = async (req, res) => {
   try {
-    const { name, description, price, category, quantity, shipping } = req.fields;
+    const { name, description, price, category, quantity, shipping } =
+      req.fields;
     const { photo } = req.files;
     //alidation
     switch (true) {
@@ -154,8 +153,11 @@ export const updateProductController = async(req , res) =>{
           .send({ error: "photo is Required and should be less then 1mb" });
     }
 
-    const products = await productModel.findByIdAndUpdate(req.params.pid,
-      {...req.fields, slug:slugify(name)} , {new:true});
+    const products = await productModel.findByIdAndUpdate(
+      req.params.pid,
+      { ...req.fields, slug: slugify(name) },
+      { new: true }
+    );
     if (photo) {
       products.photo.data = fs.readFileSync(photo.path);
       products.photo.contentType = photo.type;
@@ -174,4 +176,4 @@ export const updateProductController = async(req , res) =>{
       message: "Error in updating product",
     });
   }
-}
+};
