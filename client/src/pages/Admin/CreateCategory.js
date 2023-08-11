@@ -36,8 +36,8 @@ const CreateCategory = () => {
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get("/api/v1/category/all-category");
-      if (data.success) {
-        setCategories(data.category);
+      if (data?.success) {
+        setCategories(data?.category);
       }
     } catch (error) {
       console.log(error);
@@ -50,43 +50,44 @@ const CreateCategory = () => {
   }, []);
 
   // update category handleUpdate
-  const handleUpdate = async(e) =>{
-    e.preventDefault()
+  const handleUpdate = async (e) => {
+    e.preventDefault();
     try {
-      const {data} = await axios.put(`/api/v1/category/update-category/${selected._id}`, {name:updateName})
-      if(data.success){
-        toast.success(`${updateName} is updated`)
-        setSelected(null)
-        setUpdateName("")
-        setVisible(false)
-        getAllCategory()
-      }else{
-        toast.error(data.message)
+      const { data } = await axios.put(
+        `/api/v1/category/update-category/${selected._id}`,
+        { name: updateName }
+      );
+      if (data.success) {
+        toast.success(`${updateName} is updated`);
+        setSelected(null);
+        setUpdateName("");
+        setVisible(false);
+        getAllCategory();
+      } else {
+        toast.error(data.message);
       }
     } catch (error) {
-      toast.error('something went wrong')
+      toast.error("something went wrong");
     }
-  }
-
+  };
 
   // delete category handleUpdate
-  const handleDelete = async(id) =>{
-    
+  const handleDelete = async (id) => {
     try {
-      const {data} = await axios.delete(`/api/v1/category/delete-category/${id}`, )
-      if(data.success){
-        toast.success(`category is deleted`)
-        
-        
-        getAllCategory()
-      }else{
-        toast.error(data.message)
+      const { data } = await axios.delete(
+        `/api/v1/category/delete-category/${id}`
+      );
+      if (data.success) {
+        toast.success(`category is deleted`);
+
+        getAllCategory();
+      } else {
+        toast.error(data.message);
       }
     } catch (error) {
-      toast.error('something went wrong')
+      toast.error("something went wrong");
     }
-  }
-
+  };
 
   return (
     <Layout title={"Dashboard - Create Category"}>
@@ -128,7 +129,12 @@ const CreateCategory = () => {
                           >
                             Edit
                           </button>
-                          <button className="btn btn-danger ms-2" onClick={()=>{handleDelete(c._id)}}>
+                          <button
+                            className="btn btn-danger ms-2"
+                            onClick={() => {
+                              handleDelete(c._id);
+                            }}
+                          >
                             Delete
                           </button>
                         </td>
