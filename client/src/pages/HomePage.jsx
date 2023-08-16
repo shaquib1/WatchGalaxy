@@ -3,10 +3,12 @@ import Layout from "./../components/Layout/Layout";
 import axios from "axios";
 import { Checkbox, Radio } from 'antd'
 import { Prices } from "../components/Prices";
+import { useNavigate } from "react-router-dom";
 
 
 const HomePage = () => {
 
+  const navigate = useNavigate()
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
@@ -92,22 +94,22 @@ const HomePage = () => {
 
 
   // load more
-  const loadMore = async()=>{
+  const loadMore = async () => {
     try {
       setLoading(true)
-      const {data}=await axios.get(`/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(`/api/v1/product/product-list/${page}`);
       setLoading(false)
-      setProducts([...products , ...data?.products]);
+      setProducts([...products, ...data?.products]);
     } catch (error) {
       console.log(error);
       setLoading(false);
     }
   }
 
-  useEffect(()=>{
-   if(page === 1) return;
-   loadMore();
-  } , [page])
+  useEffect(() => {
+    if (page === 1) return;
+    loadMore();
+  }, [page])
 
   return (
     <Layout title={"ALL Products - Best offers "}>
@@ -154,7 +156,8 @@ const HomePage = () => {
                   <h5 className="card-title">{p.name}</h5>
                   <p className="card-text">{p.description.substring(0, 30)}...</p>
                   <p className="card-text"> ${p.price}</p>
-                  <button class="btn btn-primary ms-1">More Details</button>
+                  <button class="btn btn-primary ms-1"
+                    onClick={() => navigate(`/product/${p.slug}`)}>More Details</button>
                   <button class="btn btn-secondary ms-1">ADD TO CART</button>
                 </div>
               </div>

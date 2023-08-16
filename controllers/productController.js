@@ -1,4 +1,4 @@
-import exp from "constants";
+
 import productModel from "../models/productModel.js";
 import fs from "fs";
 import slugify from "slugify";
@@ -179,7 +179,6 @@ export const updateProductController = async (req, res) => {
   }
 };
 
-  
 // product filter
 export const productFiltersController = async (req, res) => {
   try {
@@ -201,7 +200,6 @@ export const productFiltersController = async (req, res) => {
     });
   }
 };
-
 
 //product count
 export const productCountController = async (req, res) => {
@@ -241,6 +239,55 @@ export const productListController = async (req, res) => {
     res.status(400).send({
       success: false,
       message: "error in per page ctrl",
+      error,
+    });
+  }
+};
+
+// search product controller
+export const searchProductController = async (req, res) => {
+  try {
+    const { keyword } = req.params;
+    const result = await productModel
+      .find({
+        $or: [
+          { name: { $regex: keyword, $options: "i" } },
+          { description: { $regex: keyword, $options: "i" } },
+        ],
+      })
+      .select("-photo");
+    res.json(result);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      message: "error in searching product API ",
+      error,
+    });
+  }
+};
+
+//related product controller
+export const relatedProductController = async (req, res) => {
+  try {
+    const { pid, cid } = req.params;
+    const products = await productModel
+      .find({
+        category: cid,
+        _id: { $ne: pid },
+      })
+      .select("-photo")
+      .limit(3)
+      .populate("category");
+    res.status(200).send({
+      success: true,
+      products,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({
+      success: false,
+      message: "error in getting similar product",
       error,
     });
   }
