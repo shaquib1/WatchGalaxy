@@ -50,27 +50,22 @@ router.put(
   updateProductController
 );
 
-
 // product filter
-router.post('/product-filters',productFiltersController);
+router.post("/product-filters", productFiltersController);
 
-//product count 
-router.get('/product-count' , productCountController)
-
+//product count
+router.get("/product-count", productCountController);
 
 //product per page
-router.get('/product-list/:page' , productListController)
+router.get("/product-list/:page", productListController);
 
-
-// search controller 
-router.get('/search/:keyword' , searchProductController);
+// search controller
+router.get("/search/:keyword", searchProductController);
 
 // similar products
-router.get('/related-product/:pid/::cid' , relatedProductController)
+router.get("/related-product/:pid/::cid", relatedProductController);
 
 // category wise product
-router.get('/product-category/:slug' , productCategoryController)
-
-
+router.get("/product-category/:slug", productCategoryController);
 
 export default router;

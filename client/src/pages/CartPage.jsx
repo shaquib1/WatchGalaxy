@@ -14,13 +14,13 @@ const CartPage = () => {
 
 
     // delete item
-    const removeCartItem = (pid )=>{
+    const removeCartItem = (pid) => {
         try {
             let myCart = [...cart];
-            let index = myCart.findIndex((item)=>item._id===pid);
-            myCart.splice(index , 1);
+            let index = myCart.findIndex((item) => item._id === pid);
+            myCart.splice(index, 1);
             setCart(myCart);
-            localStorage.setItem("cart" , JSON.stringify(myCart));
+            localStorage.setItem("cart", JSON.stringify(myCart));
         } catch (error) {
             console.log(error)
         }
@@ -28,15 +28,15 @@ const CartPage = () => {
 
 
     // total price
-    const totalPrice = ()=>{
+    const totalPrice = () => {
         try {
-            let total =0;
-            cart?.map((item)=>{
+            let total = 0;
+            cart?.map((item) => {
                 total = total + item.price;
             });
-            return total.toLocaleString("en-US",{
-                style:"currency",
-                currency:"USD"
+            return total.toLocaleString("en-US", {
+                style: "currency",
+                currency: "USD"
             })
         } catch (error) {
             console.log(error)
@@ -53,7 +53,7 @@ const CartPage = () => {
                             {`Hello ${auth?.token && auth?.user?.name}`}
                         </h1>
                         <h4 className='text-center'>
-                            {cart?.length  ? `You Have ${cart.length} items in your cart ${auth?.token ? " " : "please login to checkout"
+                            {cart?.length ? `You Have ${cart.length} items in your cart ${auth?.token ? " " : "please login to checkout"
                                 }` : "Your Cart Is Empty"}
                         </h4>
                     </div>
@@ -73,7 +73,7 @@ const CartPage = () => {
                                     <h4>{p.name}</h4>
                                     <p>{p.description.substring(0, 30)}</p>
                                     <p>Price : {p.price}</p>
-                                    <button className="btn btn-danger" onClick={()=>removeCartItem(p._id)}>Remove</button>
+                                    <button className="btn btn-danger" onClick={() => removeCartItem(p._id)}>Remove</button>
                                 </div>
                             </div>
                         ))}

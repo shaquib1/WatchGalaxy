@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "./../components/Layout/Layout";
 import axios from "axios";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -58,13 +58,13 @@ const ProductDetails = () => {
           <h6>Description : {product.description}</h6>
           <h6>Price : {product.price}</h6>
           <h6>Category : {product?.category?.name}</h6>
-          <button class = "btn btn-secondary ms-1">ADD TO CART</button>
+          <button class="btn btn-secondary ms-1">ADD TO CART</button>
         </div>
       </div>
 
-       <hr />
+      <hr />
 
-       <div className="row container">
+      <div className="row container">
         <h6>Similar Products</h6>
         {relatedProducts.length < 1 && (
           <p className="text-center">No Similar Products found</p>
@@ -81,7 +81,7 @@ const ProductDetails = () => {
                 <h5 className="card-title">{p.name}</h5>
                 <p className="card-text">{p.description.substring(0, 30)}...</p>
                 <p className="card-text"> $ {p.price}</p>
-                
+
                 <button class="btn btn-secondary ms-1">ADD TO CART</button>
               </div>
             </div>
