@@ -229,3 +229,40 @@ export const getOrderController = async (req, res) => {
     });
   }
 };
+
+
+// Admin check all order controller
+export const getAllOrderController = async(req , res)=>{
+  try {
+    const orders = await orderModel
+      .find({})
+      .populate("products", "-photo")
+      .populate("buyer", "name")
+      .sort({createdAt:"-1"});
+    res.json(orders);
+  } catch (error) {
+    console.log(error)
+    res.status(400).send({
+      success:false,
+      message:"Error while getting all orders",
+      error,
+    })
+  }
+}
+
+// orderStatus Controller
+export const orderStatusController = async(req , res)=>{
+  try {
+     const  {orderId}= req.params;
+     const {status}=req.body;
+     const orders = await orderModel.findByIdAndUpdate(orderId , {status} , {new:true});
+     res.json(orders);
+  } catch (error) {
+    console.log(error)
+    res.status(400).send({
+      success:false,
+      message:"error while getting status",
+      error,
+    })
+  }
+}
