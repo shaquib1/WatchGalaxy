@@ -1,27 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* font-family: 'Poppins', sans-serif; */
+/* font-family: 'Playfair Display', serif; */
 
-
-/*
-
-font-family: 'Playfair Display', serif;
-font-family: 'Poppins', sans-serif;
-font-family: 'Roboto', sans-serif;
-
-*/
-
-
-/* ============ navbar css ==============*/
-
-.navbar{
-  font-family: 'Poppins', sans-serif;
-  font-size: 17;
+/* //navbar css */
+.navbar {
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
   line-height: 26px;
   text-transform: uppercase;
   box-shadow: 0 8px 6px -6px gray;
@@ -29,50 +20,61 @@ font-family: 'Roboto', sans-serif;
   border-bottom: solid gray !important;
 }
 
-.nav-link{
+.nav-link {
   font-weight: 300 !important;
 }
 
-.active{
+.active {
   border-bottom: 2px solid black;
 }
 
-
-            
-.navbar-brand{
+.navbar-brand {
   font-weight: 700;
-  font-family: "roboto" , sans-serif;
+  font-family: "roboto", sans-serif;
   letter-spacing: 3px;
 }
 
+.search-form {
+  margin-right: 10px;
+  margin-top: 4px;
+}
+.search-form input {
+  border: none;
+  border-radius: 0;
+}
+.search-form button {
+  background-color: #000000;
+  border-radius: 0;
+  color: white;
+}
 
-/* ==============footer================ */
+/* =============================
+==========footer============= */
 
-.footer{
+.footer {
   color: white;
   padding: 25px;
-  background: #000000;
+  background: #000000; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
     #434343,
     #000000
-  );
+  ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #434343, #000000);
 }
 
-.footer a{
+.footer a {
   text-decoration: none;
   color: white;
   padding: 10px;
 }
 
-.footer a:hover{
+.footer a:hover {
   color: #ffefba;
   border-bottom: 1px solid #ffefba;
 }
-
-
-/*=============== Page not found ================*/
+/* =================================
+======== page not found css ======= */
 .pnf {
   display: flex;
   min-height: 65vh;
@@ -101,10 +103,8 @@ font-family: 'Roboto', sans-serif;
   background-color: black;
   color: white;
 }
-
-
-/*================= contact us ==================*/
-
+/* ========================================= */
+/* =========contact us ========= */
 .contactus {
   margin: 0;
   padding: 0;
@@ -114,65 +114,31 @@ font-family: 'Roboto', sans-serif;
   justify-content: center;
 }
 
-
-/* ===================================
-========= register page  */
-.form-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 70vh;
-  flex-direction: column;
-  background-color: #ffdee9;
-  background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
-}
-
-.form-container form {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  padding: 20px;
-  background-color: #fff;
-}
-
-.form-container form .title {
-  text-align: center;
-  margin-bottom: 15px;
-  font-weight: bold;
-  font-family: "Playfair Display", serif;
-}
-
-.form-container form input {
-  border: none;
-  border-bottom: 1px solid #000;
-  border-radius: 0;
-}
-
-.form-container form button {
-  border: 1px solid black;
-  border-radius: 0;
-  background-color: #000;
-  color: white;
-  width: 250px;
-}
-
-.form-container form button:hover {
-  border: 1px solid black;
-  background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-
- /*================================*/
-
- .product-link{
+/* ==================== */
+.product-link {
   text-decoration: none !important;
   color: black !important;
- }
+}
+
+.cat-btn {
+  padding: 40px 0px;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+.cat-btn:hover {
+  background-color: #434343;
+  color: white;
+}
+/* ================
+====dashboard
+=================== */
+
+.dashboard {
+  margin-top: 100px !important;
+}
+
+.dashboard-menu h4 {
+  background-color: #434343 !important;
+  color: white;
+  padding: 20px 0px;
+}

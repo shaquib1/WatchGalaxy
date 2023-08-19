@@ -5,21 +5,22 @@ const About = () => {
   return (
     <Layout title={"About us Ecommerce-App"}>
       <div className="row contactus ">
-        <div className="col-md-6 ">
+        <div className="col-md-6 text-center">
           <img
             src="/images/about.jpeg"
             alt="contactus"
-            style={{ width: "100%" }}
+            style={{ width: "60%" }}
           />
         </div>
-        <div className="col-md-4">
+        <div className="col-md-4 text-center">
           <p className="text-justify mt-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            officiis obcaecati esse tempore unde ratione, eveniet mollitia,
-            perferendis eius temporibus dicta blanditiis doloremque explicabo
-            quasi sunt vero optio cum aperiam vel consectetur! Laborum enim
-            accusantium atque, excepturi sapiente amet! Tenetur ducimus aut
-            commodi illum quidem neque tempora nam.
+
+            <h2>Welcome to my E-commerce App</h2>
+
+            <h6>My name is Shaquib Alam </h6>
+
+            <p>This is full stack Application based on MERN STACK Technology</p>
+
           </p>
         </div>
       </div>
