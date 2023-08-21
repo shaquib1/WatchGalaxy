@@ -3,7 +3,7 @@ import Layout from "./../components/Layout/Layout";
 
 const About = () => {
   return (
-    <Layout title={"About us Ecommerce-App"}>
+    <Layout title={"About us WatchGalaxy"}>
       <div className="row contactus ">
         <div className="col-md-6 text-center">
           <img

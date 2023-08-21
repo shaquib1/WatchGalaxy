@@ -7,7 +7,7 @@ import { useAuth } from "../context/auth";
 const Dashboard = () => {
   const [auth] = useAuth();
   return (
-    <Layout title={"Dashboard - Ecommerce-App"}>
+    <Layout title={"Dashboard - WatchGalaxy"}>
       <div className="container-flui p-4 m-4">
         <div className="row">
           <div className="col-md-3">

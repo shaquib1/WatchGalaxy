@@ -83,7 +83,7 @@ const CartPage = () => {
     };
 
     return (
-        <Layout>
+        <Layout title={"Cart - WatchGalaxy"}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">

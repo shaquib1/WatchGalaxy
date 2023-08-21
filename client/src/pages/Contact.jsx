@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const Contact = () => {
   return (
-    <Layout title={"contact Us - Ecommerce-App"}>
+    <Layout title={"contact Us - WatchGalaxy"}>
       <div className="row contactus ">
         <div className="col-md-6 text-center">
           <img
