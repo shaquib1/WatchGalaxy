@@ -1,11 +1,10 @@
 
-import React, { useState } from 'react'
-import Layout from '../../components/Layout/Layout'
-
-import axios from "axios"
-import { useNavigate } from "react-router-dom"
-
-import toast from 'react-hot-toast';
+import React, { useState } from "react";
+import Layout from "./../../components/Layout/Layout";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import "../../styles/AuthStyles.css";
 
 
 const Register = () => {
@@ -46,9 +45,10 @@ const Register = () => {
   return (
     <Layout title={"Register Page"}>
 
-      <div className="form-container ">
-        <h1>Register page</h1>
+      <div className="form-container " >
+
         <form onSubmit={handleSubmit}>
+        <h4 className="title">REGISTER FORM</h4>
           <div className="mb-3">
             <input type="name" value={name} onChange={(e) => setName(e.target.value)} className="form-control" id="exampleInputName" placeholder="Name" required />
           </div>
