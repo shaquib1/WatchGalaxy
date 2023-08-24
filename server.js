@@ -8,7 +8,7 @@ import authRoutes from "./routes/authRoute.js"
 import categoryRoute from  './routes/categoryRoutes.js'
 import productRoute from './routes/productRoutes.js'
 import cors from 'cors';
-
+import path from 'path';
 
 //rest object
 const app=express();    // here .env file is root file so we not use path but if this file inside any folder that use in config(path:'path_name')
@@ -17,6 +17,7 @@ const app=express();    // here .env file is root file so we not use path but if
 app.use(cors());        // call cors or use cors
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname,'./client/build')))
 
 // configure env
 dotenv.config();
@@ -31,11 +32,10 @@ app.use('/api/v1/category' , categoryRoute)
 app.use('/api/v1/product' , productRoute)
 
 
-//rest api building example
-app.get('/' , (req, res)=>{
-    res.send("<h1>hello this is my ecommerce full stack web application in mern</h1>");
-});
-
+//rest api b
+app.use('*' , function(req , res){
+    res.sendFile(path.join(__dirname,'./client/build/index.html'));
+})
 
 //port
  const PORT = process.env.PORT || 8000;
