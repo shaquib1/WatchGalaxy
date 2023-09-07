@@ -9,5 +9,12 @@ Regisger Page
 Login Page
 ![image](https://github.com/shaquib1/WatchGalaxy/assets/101167802/487b383f-01bb-4234-aac2-4fcb5931dc2c)
 
+Cart Page and Payment gateway
+![image](https://github.com/shaquib1/WatchGalaxy/assets/101167802/a95fc2e7-836a-4284-abef-2e0c977ed0ad)
+
+Admin Dashboard
+![image](https://github.com/shaquib1/WatchGalaxy/assets/101167802/1f844468-7c9b-401c-bf5f-ca356c7ee043)
+
+
 
 
