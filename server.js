@@ -17,7 +17,7 @@ const app=express();    // here .env file is root file so we not use path but if
 app.use(cors());        // call cors or use cors
 app.use(express.json());
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname,'./client/build')))
+//app.use(express.static(path.join(__dirname,'./client/build')))  // note when host this application then remove this line of code from comment to code then it is working
 
 // configure env
 dotenv.config();
@@ -32,7 +32,7 @@ app.use('/api/v1/category' , categoryRoute)
 app.use('/api/v1/product' , productRoute)
 
 
-//rest api b
+//rest api for hosting 
 app.use('*' , function(req , res){
     res.sendFile(path.join(__dirname,'./client/build/index.html'));
 })
