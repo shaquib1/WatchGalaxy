@@ -15,6 +15,15 @@ Cart Page and Payment gateway
 Admin Dashboard
 ![image](https://github.com/shaquib1/WatchGalaxy/assets/101167802/1f844468-7c9b-401c-bf5f-ca356c7ee043)
 
+Users Orders
+![image](https://github.com/shaquib1/WatchGalaxy/assets/101167802/d01c6cad-4aad-46b0-bb8a-18195b3679f4)
+
+Create Category
+![image](https://github.com/shaquib1/WatchGalaxy/assets/101167802/ca8b52c8-ae10-416d-b570-c7e1d26dd34f)
+
+Create Product
+![image](https://github.com/shaquib1/WatchGalaxy/assets/101167802/432a0517-6b27-4e6b-a596-5515aedc9d50)
+
 
 
 
