@@ -1,4 +1,5 @@
-This is a full stack project, some screenshots of project are
+This is a Ecommerce-Application using MERN Stack technology to deliver a comprehensive, secure, and user-centric platform for online shopping. With features like authentication, seamless payment gateway integration, dynamic shopping cart management, advanced filtering, and personalized user and admin dashboard.
+some screenshots of project are
 
 Home Page 
 ![image](https://github.com/shaquib1/WatchGalaxy/assets/101167802/d8ed799b-7303-486f-a177-e9da0b9889b0)
